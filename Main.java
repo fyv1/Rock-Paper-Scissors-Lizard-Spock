@@ -9,7 +9,7 @@ public class Main {
 
         Scanner s = new Scanner(System.in);
 	    Game g = new Game(s.nextInt());
-	    g.showMenu(g.getOption());
+	    g.startGame(g.getOption());
 
     }
 }
