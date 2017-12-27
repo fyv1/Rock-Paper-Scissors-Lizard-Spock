@@ -1,16 +1,31 @@
 package pl.fyv;
 
-import java.rmi.UnexpectedException;
-
 public enum Object {
 
-    ROCK(1),
-    PAPER(2),
-    SCISSOR(3),
-    LIZARD(4),
-    SPOCK(5);
+    ROCK,
+    PAPER,
+    SCISSOR,
+    LIZARD,
+    SPOCK;
 
-    public boolean beats(Object things) throws UnexpectedException {
+    public static Object set(int value) {
+        switch (value) {
+            case 1:
+                return ROCK;
+            case 2:
+                return PAPER;
+            case 3:
+                return SCISSOR;
+            case 4:
+                return LIZARD;
+            case 5:
+                return SPOCK;
+            default:
+                throw new IllegalArgumentException("Wrong value!");
+        }
+    }
+
+    public boolean beats(Object things) {
         switch(this) {
             case ROCK:
                 return things == SCISSOR && things == LIZARD;
@@ -23,18 +38,8 @@ public enum Object {
             case SPOCK:
                 return things == ROCK && things == SCISSOR;
             default:
-                throw new UnexpectedException("Nieznany obiekt");
+                throw new IllegalArgumentException("Unknown object");
         }
-    }
-
-
-    private int number;
-    Object(int number) {
-        this.number = number;
-    }
-
-    public int getNumber() {
-        return number;
     }
 }
 
