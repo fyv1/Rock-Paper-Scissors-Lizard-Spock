@@ -4,12 +4,13 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
-    Object us, cp;
+    GameObjects us, cp;
 
     Game(int user) {
-        us.set(user);
-        cp.set(ThreadLocalRandom.current().nextInt(1,6));
+       us = GameObjects.set(user);
+       cp = GameObjects.set(ThreadLocalRandom.current().nextInt(1,6));
     }
+
 
     public void whoWon() {
         if(us.equals(cp)) System.out.println("It's a tie!");
