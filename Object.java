@@ -28,15 +28,15 @@ public enum Object {
     public boolean beats(Object things) {
         switch(this) {
             case ROCK:
-                return things == SCISSOR && things == LIZARD;
+                return things == SCISSOR || things == LIZARD;
             case PAPER:
-                return things == ROCK && things == SPOCK;
+                return things == ROCK || things == SPOCK;
             case SCISSOR:
-                return things == PAPER && things == LIZARD;
+                return things == PAPER || things == LIZARD;
             case LIZARD:
-                return things == PAPER && things == SPOCK;
+                return things == PAPER || things == SPOCK;
             case SPOCK:
-                return things == ROCK && things == SCISSOR;
+                return things == ROCK || things == SCISSOR;
             default:
                 throw new IllegalArgumentException("Unknown object");
         }
