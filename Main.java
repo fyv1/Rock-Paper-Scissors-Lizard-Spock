@@ -13,7 +13,7 @@ public class Main {
 
         System.out.println("What's your choice?: ");
         Game g = new Game(s.nextInt());
-        g.whoWon();
 
+        g.whoWon();
     }
 }
