@@ -4,13 +4,18 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
-    private int option;
-    Game(int option) {
-        this.option = option;
+    Object us, cp;
+
+    Game(int user) {
+        us.set(user);
+        cp.set(ThreadLocalRandom.current().nextInt(1,6));
     }
 
-    private int cpu = ThreadLocalRandom.current().nextInt(1,6);
-    private int user;
+    public void whoWon() {
+        if(us.equals(cp)) System.out.println("It's a tie!");
+        else if(us.beats(cp)) System.out.println(us.name() +" destroys "+ cp.name()+ "! You won!");
+        else System.out.println(cp.name() +" destroys "+ us.name()+ "! You lost.");
+    }
 
 
 
